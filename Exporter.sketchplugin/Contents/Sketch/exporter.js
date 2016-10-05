@@ -54,15 +54,15 @@
 
 function onExportLayers(context) {
 
-  // We are passed a context variable when we're run.
-  // We use this to get hold of a javascript object
-  // which we can use in turn to manipulate Sketch.
-  var sketch = context.api()
+    // Fetch the root Sketch object
+    var sketch = context.api()
 
-  // Next we want to extract the selected page of the selected (front-most) document
-  var document = sketch.selectedDocument
-  var page = document.selectedPage
+    var options = {}
 
+    // Iterate over each layer in the selection, exporting it
+    sketch.selectedDocument.selectedLayers.iterate(function(layer) {
+      layer.export(options)
+    })
 };
 
 // And that's it. Job done.
