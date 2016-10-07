@@ -1,6 +1,6 @@
-// Exporter, by Sam Deane — Source code available at [GitHub](https://github.com/BohemianCoding/plugins.examples.exporter)
+// Exporting Examples, by Sam Deane — Source code available at [GitHub](https://github.com/BohemianCoding/plugins.examples.exporter)
 //
-// This is an example plugin, which illustrates how to export layers.
+// This is an example plugin, which illustrates how to export layers, artboards and pages.
 
 //
 // ## Layout
