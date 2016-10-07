@@ -57,12 +57,46 @@ function onExportLayers(context) {
     // Fetch the root Sketch object
     var sketch = context.api()
 
-    var options = {}
+    // We can specify a lot of different options for the exporting.
+    //
+    // ### General Options
+    // - use-id-for-name : normally the exported files are given the same names as the layers they represent, but if this options is true, then the layer ids are used instead; defaults to false.
+    // - output : this is the path of the folder where all exported files are placed; defaults to "~/Documents/Sketch Exports"
+    // - overwriting : if true, the exporter will overwrite any existing files with new ones; defaults to false.
+    // - trimmed: if true, any transparent space around the exported image will be trimmed; defaults to false.
+    // ### SVG options
+    // - compact : if exporting as SVG, this option makes the output more compact; defaults to false.
+    // - include-namespaces : if exporting as SVG, this option includes extra attributes; defaults to false.
+    // ### PNG options
+    // - save-for-web : if exporting a PNG, this option removes metadata such as the colour profile from the exported file; defaults to false.
+    // ### JPG options
+    // - compression : if exporting a JPG, this option determines the level of compression, with 0 being the minimum, 1.0 the maximum; defaults to 1.0
+    // - progressive : if exporting a JPG, this option makes it progressive; defaults to false.
+    // - group-contents-only : false,
+
+    var options = { "scales" : "1, 2, 3", "formats" : "png, jpg" }
+
 
     // Iterate over each layer in the selection, exporting it
     sketch.selectedDocument.selectedLayers.iterate(function(layer) {
       layer.export(options)
     })
+};
+
+function onExportPage(context) {
+
+    // Fetch the root Sketch object
+    var sketch = context.api()
+    var options = { "scales" : "1, 2, 3", "formats" : "png, jpg" }
+    sketch.selectedDocument.selectedPage.export(options)
+};
+
+function onExportArtboards(context) {
+
+    // Fetch the root Sketch object
+    var sketch = context.api()
+    var options = { "scales" : "1, 2, 3", "formats" : "png, jpg" }
+    sketch.selectedDocument.selectedPage.exportArtboards(options)
 };
 
 // And that's it. Job done.

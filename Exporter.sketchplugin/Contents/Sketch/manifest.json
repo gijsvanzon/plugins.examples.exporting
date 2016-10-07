@@ -12,6 +12,20 @@
       "shortcut" : "",
       "name" : "Export Selected Layers",
       "identifier" : "exportLayers"
+    },
+    {
+      "script" : "exporter.js",
+      "handler" : "onExportPage",
+      "shortcut" : "",
+      "name" : "Export Page",
+      "identifier" : "exportPage"
+    },
+    {
+      "script" : "exporter.js",
+      "handler" : "onExportArtboards",
+      "shortcut" : "",
+      "name" : "Export Artboards",
+      "identifier" : "exportArtboards"
     }
   ]
 }
